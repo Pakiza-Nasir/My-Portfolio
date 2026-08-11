@@ -1,4 +1,4 @@
-# 🌐 Pakiza Nasir — Personal Portfolio
+<img width="1332" height="633" alt="image" src="https://github.com/user-attachments/assets/441aec2a-ded6-4c22-9b99-ebf6d1837792" /># 🌐 Pakiza Nasir — Personal Portfolio
 
 <p align="center">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
@@ -35,7 +35,7 @@ I believe in learning through hands-on experience — building projects, experim
 ## 🖥️ Portfolio Preview
 
 <p align="center">
-  <img src="image1.png" alt="Pakiza Nasir Portfolio Preview" width="90%">
+<img src="portfolio-preview.png" alt="Pakiza Nasir Portfolio Preview" width="90%">
 </p>
 
 ---
