@@ -1,51 +1,319 @@
-Pakiza Nasir - Professional Portfolio Website DocumentationAn in-depth, over-explained technical overview and repository breakdown of the official web application portfolio for Pakiza Nasir. This repository contains the complete frontend architecture, layout mechanics, state observers, styling frameworks, and third-party script integrations that construct the dynamic user experience.  🛠 System Architecture & Stack BreakdownThis application uses a client-side architecture combining semantic HTML5 structures, customized CSS3 declarations, utility classes from Bootstrap 4.5, modular vanilla JavaScript observers, and external canvas/animation libraries.  Core Stack & CDN ResourcesHTML5: Establishes structural semantics (<nav>, <section>, <article>, <footer>) with meta configuration for viewports.  CSS3: Implements custom CSS variables (:root), Flexbox grid setups, dynamic animations, CSS Glassmorphism effects, and theme configuration rules.  Vanilla JavaScript (ES6+): Handles scroll intersections, portfolio element filtering, theme persistent storage, and AJAX form dispatching without requiring heavy framework dependencies.  Bootstrap 4.5: Controls global grid rows (.row), column allocations (.col-lg-*, .col-md-*), collapse navigation behavior, and modal utility support.  Google Fonts (Poppins): Provides typography scaling across weights 300 through 800.  FontAwesome 6.4.0: Delivers scalable vector icons across navigation, project meta descriptions, stats, social targets, and form feedback states.  Third-Party Script & Visual LibrariesParticles.js: Renders an interactive background canvas in the Hero section with dynamic particle node connecting lines.  Typed.js: Handles typewriter animations for string transitions inside header elements.  AOS (Animate On Scroll): Delivers element entrance transitions on scroll events.  FormSubmit: Enables direct form submissions directly from client-side AJAX requests without requiring an explicit backend server setup.  📂 Source File Structure Over-Explanation1. index.html (Application Markup)The structural backbone of the entire portfolio.  index.html
-├── <head> (Fonts, CDN stylesheets, Bootstrap 4.5, FontAwesome, AOS, style.css)
-└── <body>
-    ├── <nav> (.navbar .custom-nav .fixed-top)
-    ├── <section id="home"> (.hero-section & #particles-js wrapper)
-    ├── <section id="about"> (Profile Overview, Quick Stats)
-    ├── <section id="skills"> (Tech Stack, Skill Rings, Interactive Filter)
-    ├── <section id="services"> (Services / Expertise Cards)
-    ├── <section id="projects"> (Featured Projects Showcase & Hideable Container)
-    ├── <section id="experience"> (Interactive Timeline for Education & Internships)
-    ├── <section id="contact"> (Status Info, Email, Links & FormSubmit Contact Form)
-    ├── <footer> (Navigation Links, Contact Detail Summaries, Social Links)
-    └── <script> inclusions (jQuery, Bootstrap, Particles.js, Typed.js, AOS, script.js)
-Key Sections Detail:Navbar (<nav>): Features an expanding target containing internal jump anchors (#home, #about, #skills, #services, #projects, #experience, #contact), a direct link to the contact section ("Hire Me"), and a button (#themeToggle) for switching between visual modes.  Hero Section (#home): Integrates an isolated canvas container (<div id="particles-js"></div>) behind typography content. Utilizes a typing animation targeted at <span id="typed-text"></span> alongside download anchors pointing to Pakiza_Nasir_CV.pdf.  About Section (#about): Divided into a profile summary card and a 2x2 grid displaying key metrics (e.g., 1+ Year Experience, 6+ Projects Completed, 15+ Tech Skills, BS CS Degree).  Skills Section (#skills): Features category filtering buttons (all, frontend, backend, database, tools) that toggle custom circular progress indicators (.skill-circle) using CSS variables --percent and --clr.  Services / Expertise (#services): Displays functional offerings using specialized service boxes that feature dynamic icon transforms on hover.  Projects (#projects): Features structured cards containing project screenshots, date metadata, descriptions, and direct code links. Includes an initial set of 3 primary projects alongside a secondary container (#moreProjects) toggled by user interaction.  Experience & Timeline (#experience): A central timeline framework mapping key educational and professional milestones sequentially.  Contact (#contact): Includes live status indicators, direct communications, social handles, and an AJAX-enabled contact form configured with anti-spam honey pot fields (<input type="text" name="_honey">) and automated subjects.  Footer (<footer>): Summarizes brand positioning, navigational links, contact metadata, and copyright statements.  2. script.js (Client-Side Logic & Observers)script.js manages page behavior, asynchronous rendering, and UI states.  script.js
-├── 1. initScrollAnimations() [IntersectionObserver for scroll entrance animations]
-├── 2. initSkillsObserver() [Directional intersection listener for skill items]
-├── 3. filterProjects(category, event) [DOM manipulators for filtering projects]
-├── 4. DOMContentLoaded Handler
-│   ├── AOS Initializer
-│   ├── Toggle Projects Expansion Handler
-│   ├── Typed.js Execution Configuration
-│   ├── Particles.js Canvas Graph Engine Settings
-│   ├── Contact Form Asynchronous Submission (fetch API)
-│   ├── Theme Switcher Handler (light-theme toggle & localStorage persistent storage)
-│   └── Skill Filter Button Handler (category filtering)
-Detailed Breakdown of JS Subsystems:Universal Intersection Observer (initScrollAnimations):
-Registers an IntersectionObserver across target classes .slide-from-left, .slide-from-right, .slide-from-bottom, and .zoom-in-out. Upon intersecting with a 5% threshold inside the viewport, it applies an .active class to trigger CSS transitions.  Project Filter Mechanism (filterProjects):
-Accepts target categories (web, ml, or all). Automatically updates button highlight classes (.active) and adjusts display properties on .project-item elements.  More Projects Toggle:
-Controls display states on the #moreProjects container by toggling the Bootstrap utility class .d-none and dynamically updating button icon markers and label text.  Particles.js Config Engine:
-Generates 80 dynamic circular nodes on canvas context #particles-js colored with --accent-mustard (#ffb703). Linked lines connect nodes within a threshold distance of 150 units. Interactivity handlers manage mouse hovering (grab mode) and user clicks (push mode).  Typed.js Logic:
-Sequences through string arrays ("Pakiza Nasir", "Software Engineer", "Web Developer", "Project Manager") with a typing speed of 70ms, backspacing speed of 40ms, and a 1800ms delay loop.  AJAX Contact Form Engine:
-Intercepts standard submit events via e.preventDefault(). Changes button state to display a loading spinner (fa-spinner fa-spin), then sends payload data asynchronously via a fetch POST request to FormSubmit. Returns success or error status responses without page refreshes.  Theme Switcher & LocalStorage:
-Toggles the class .light-theme on document.body while updating switch icons between .fa-moon and .fa-sun. Saves state preferences directly inside browser localStorage using key 'theme' to ensure persistent settings across sessions.  3. style.css (Custom Stylesheet & Styling Specs)A modular stylesheet governing theme variables, custom cards, custom animations, and layout responses.  Core Color Variables (:root)CSS:root {
-    --bg-dark: #0a1128;         /* Primary Dark Canvas Background */
-    --bg-card: #121d3b;         /* Default Card Surface Container Background */
-    --bg-darker: #050a18;       /* Alternating Section Background Accent */
-    --text-primary: #f3f4f6;    /* Global Text Foreground Color */
-    --accent-mustard: #ffb703;  /* Accent Highlight Tint */
-    --glow-mustard: rgba(255, 183, 3, 0.35); /* Accent Glow Effects */
-    --border-glow: rgba(255, 183, 3, 0.2);   /* Standard Card Border Tint */
-}
-  Key Custom Styling Constructs:Conic Skill Rings (.skill-circle):Calculates conic gradient progress paths dynamically using inline CSS properties:CSSbackground: conic-gradient(var(--clr) calc(var(--percent) * 1%), #22252a 0deg);
-This creates visual progress rings centered around an inner dark core.  Showcase Cards (.showcase-card):
-Designed with fixed aspect-ratio image containers (.showcase-img-box), subtle borders, flexbox body layouts, and dynamic hover zoom transforms (transform: scale(1.06)) on background preview images.  Timeline Structure (.timeline-container):
-Builds a central vertical axis line (.timeline-center-line) using absolute positioning. Timeline nodes alternate between .left-item and .right-item orientations, using circular badge markers (.timeline-icon-badge) aligned directly over the axis line.  Theme Overrides (body.light-theme):
-Renders clean light mode backgrounds (#f8f9fa), light surface panels (#ffffff), dark slate typography (#0f172a), and soft grey borders (#e2e8f0) when active.  Animation Transforms:
-Defines initial hidden values (opacity: 0, directional offsets like translateX(-60px) or translateY(60px)) that transition smoothly to active states (opacity: 1, transform: translate(0)) using cubic-bezier curves.  🛠 Local Setup & Development InstructionsPrerequisitesA modern web browser (e.g., Google Chrome, Mozilla Firefox, Microsoft Edge, Safari) is required.Running the Application LocallyClone the repository:Bashgit clone https://github.com/Pakiza-Nasir/My-Portfolio.git
-Navigate into the directory:Bashcd My-Portfolio
-Launch the web application:Open index.html directly in your browser.  Alternatively, serve the project locally using VS Code's Live Server extension or Python's HTTP server:Bash# For Python 3.x environments
-python -m http.server 8000
-Open http://localhost:8000 in your browser.📑 Feature Summary MatrixSection / FeaturePrimary Stack / LibrariesFunctional RoleNavigationBootstrap 4.5, CSS GlassmorphismFixed header with scroll targets and visual mode toggling.  Hero EngineParticles.js, Typed.js, CSS AnimationsInteractive particle background canvas with dynamic text animation.  Tech StackCSS Conic Gradients, Custom ObserverInteractive skill categories with circular progress indicators.  Projects ShowcaseVanilla JS, CSS Grid, FlexboxCategorized showcase with interactive filtering and expansion containers.  Experience TimelineCSS Layouts, Custom AnimationsChronological timeline mapping academic and industry experience.  Contact FormFormSubmit, Native Fetch APIAsynchronous AJAX form dispatching with status indicator alerts.  Theme EngineLocalStorage, Custom CSS OverridesPersistent toggle for light and dark visual themes.  Created and maintained by Pakiza Nasir.  
+# 🌐 Pakiza Nasir — Personal Portfolio
+
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+</p>
+
+<p align="center">
+  <strong>A modern personal portfolio showcasing my skills, projects, experience, and development journey.</strong>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Pakiza-Nasir/My-Portfolio">
+    <img src="https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white" alt="View Repository">
+  </a>
+</p>
+
+---
+
+## 👩‍💻 About Me
+
+Hi, I'm **Pakiza Nasir**, a Computer Science graduate passionate about building modern web applications, exploring machine learning, and creating practical digital solutions.
+
+My interests include **front-end development, Python, machine learning, automation, and Agile project management**. I enjoy learning through hands-on projects and turning ideas into functional, user-friendly applications.
+
+I focus on writing clean code, creating intuitive interfaces, and continuously improving my technical and problem-solving skills.
+
+> **Learn. Build. Improve. Repeat. 🚀**
+
+---
+
+## 🖥️ Portfolio Preview
+
+<p align="center">
+  <img src="portfolio-preview.png" alt="Pakiza Nasir Portfolio Preview" width="92%">
+</p>
+
+---
+
+## 🛠️ Skills & Technologies
+
+### 🎨 Frontend
+
+<p>
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React">
+  <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=bootstrap&logoColor=white" alt="Bootstrap">
+</p>
+
+### 🐍 Backend & Programming
+
+<p>
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/C%23-239120?style=flat-square&logo=csharp&logoColor=white" alt="C#">
+  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white" alt="C++">
+  <img src="https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white" alt="Django">
+  <img src="https://img.shields.io/badge/.NET%20Blazor-512BD4?style=flat-square&logo=dotnet&logoColor=white" alt=".NET Blazor">
+</p>
+
+### 🗄️ Database & Tools
+
+<p>
+  <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="SQL">
+  <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black" alt="Firebase">
+  <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white" alt="Git">
+  <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub">
+  <img src="https://img.shields.io/badge/ClickUp-7B68EE?style=flat-square&logo=clickup&logoColor=white" alt="ClickUp">
+  <img src="https://img.shields.io/badge/Agile%2FScrum-14B8A6?style=flat-square" alt="Agile Scrum">
+</p>
+
+---
+
+# 🚀 Featured Projects
+
+A quick look at the projects featured in my portfolio.
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🌦️ Real-Time Weather App
+
+A responsive weather application for real-time weather information and city-based searches.
+
+**Tech:** `HTML` `CSS` `JavaScript`
+
+<a href="https://github.com/Pakiza-Nasir/weather-app">View Project →</a>
+
+</td>
+
+<td width="50%" valign="top">
+
+### 🩺 Diabetes Prediction System
+
+A machine learning project focused on predicting diabetes risk from health-related data.
+
+**Tech:** `Python` `Machine Learning` `Django`
+
+<a href="https://github.com/Pakiza-Nasir/Diabetes-Prediction-System">View Project →</a>
+
+</td>
+</tr>
+
+<tr>
+<td width="50%" valign="top">
+
+### 📩 SMS Classifier System
+
+An NLP-based project for identifying and classifying spam SMS messages.
+
+**Tech:** `Python` `NLP` `Scikit-Learn`
+
+<a href="https://github.com/Pakiza-Nasir/SMS-Spam-Detection">View Project →</a>
+
+</td>
+
+<td width="50%" valign="top">
+
+### 🌸 FlowEase — Period Companion
+
+A supportive and interactive web application focused on period self-care and user experience.
+
+**Tech:** `HTML` `CSS` `JavaScript`
+
+<a href="https://github.com/Pakiza-Nasir/FlowEase">View Project →</a>
+
+</td>
+</tr>
+
+<tr>
+<td width="50%" valign="top">
+
+### 🧮 Interactive Modern Calculator
+
+A clean and interactive browser-based calculator built with vanilla JavaScript.
+
+**Tech:** `HTML` `CSS` `JavaScript`
+
+<a href="https://github.com/Pakiza-Nasir/Calculator_CodeAlpha">View Project →</a>
+
+</td>
+
+<td width="50%" valign="top">
+
+### 🖼️ Interactive Image Gallery
+
+A responsive image gallery with category filtering and interactive viewing.
+
+**Tech:** `HTML` `CSS` `JavaScript`
+
+<a href="https://github.com/Pakiza-Nasir/CodeAlpha_ImageGallery">View Project →</a>
+
+</td>
+</tr>
+</table>
+
+---
+
+## 📊 Portfolio Highlights
+
+| 🎯 Category | Details |
+|---|---|
+| 🎓 Education | BS Computer Science |
+| 💼 Experience | 1+ Year Hands-on Experience |
+| 🚀 Projects | 6+ Projects |
+| 💻 Tech Skills | 15+ Technologies & Tools |
+| 🌐 Focus | Web Development & Machine Learning |
+| 📋 Methodology | Agile / Scrum |
+
+---
+
+## 💼 Expertise
+
+| Area | Focus |
+|---|---|
+| 💻 Front-End Web Development | Responsive and modern web interfaces |
+| 🧠 Machine Learning | Predictive models and intelligent applications |
+| 📋 Project Management | Agile workflows, task tracking, and automation |
+
+---
+
+# ⚙️ Run This Portfolio Locally
+
+You can run this portfolio directly on your computer without installing any backend dependencies.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Pakiza-Nasir/My-Portfolio.git
+```
+
+### 2. Open the project folder
+
+```bash
+cd My-Portfolio
+```
+
+### 3. Open in VS Code
+
+```bash
+code .
+```
+
+If the `code` command is not available, simply open the `My-Portfolio` folder manually in **Visual Studio Code**.
+
+### 4. Run the portfolio
+
+#### Option 1 — Open directly
+
+Double-click:
+
+```text
+index.html
+```
+
+It will open in your default browser.
+
+#### Option 2 — Use VS Code Live Server
+
+For the best development experience:
+
+1. Open the project in **VS Code**.
+2. Install the **Live Server** extension if you don't already have it.
+3. Right-click `index.html`.
+4. Select **Open with Live Server**.
+5. Your portfolio will open in the browser.
+
+### 📌 No installation required
+
+This is a static frontend project, so you do **not** need:
+
+- Node.js
+- npm
+- Python packages
+- Database setup
+- Backend server
+
+The project uses HTML, CSS, JavaScript, and frontend libraries loaded through CDN links.
+
+---
+
+## 📁 Project Structure
+
+```text
+My-Portfolio/
+│
+├── index.html
+├── style.css
+├── script.js
+│
+├── image1.png
+├── image2.png
+├── image3.png
+├── image4.png
+├── image5.png
+├── image6.png
+│
+├── portfolio-preview.png
+├── Pakiza_Nasir_CV.pdf
+└── README.md
+```
+
+---
+
+## 🎨 Portfolio Features
+
+- 🌙 Dark / light theme toggle
+- ✨ Animated hero section
+- 🖥️ Responsive navigation
+- 🎯 Interactive skills filtering
+- 🚀 Project filtering by category
+- 📂 Expandable project section
+- 📜 Experience & education timeline
+- 📱 Responsive layout
+- 🎨 Modern UI with Bootstrap
+- ✨ Scroll animations
+- 📄 Downloadable CV
+- 📬 Contact section
+
+---
+
+## 📄 CV
+
+My CV is available in this repository.
+
+📥 **[View / Download CV](./Pakiza_Nasir_CV.pdf)**
+
+---
+
+## 🌐 Connect With Me
+
+<p>
+  <a href="https://github.com/Pakiza-Nasir">
+    <img src="https://img.shields.io/badge/GitHub-Pakiza%20Nasir-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+  </a>
+</p>
+
+---
+
+## ⭐ Support
+
+If you like my portfolio or find any of my projects interesting, feel free to ⭐ the repository.
+
+Your support motivates me to keep learning, building, and improving.
+
+---
+
+<p align="center">
+  <strong>Built with ❤️ by Pakiza Nasir</strong>
+</p>
+
+<p align="center">
+  <i>Learning • Building • Growing 🚀</i>
+</p>
