@@ -47,7 +47,8 @@ This portfolio represents my journey, skills, and the projects I've built along 
 ## 🖥️ Portfolio Preview
 
 <p align="center">
-  <img src="image1.png" alt="Portfolio Preview" width="85%">
+  <img src="<img width="1332" height="633" alt="image" src="https://github.com/user-attachments/assets/2172f4a0-6c7b-4849-8334-13e73872b9a9" />
+" alt="Portfolio Preview" width="85%">
 </p>
 
 > 📌 **Tip:** Replace `image1.png` above with the screenshot that best represents your portfolio homepage.
