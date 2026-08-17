@@ -274,13 +274,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Auto-close Bootstrap mobile menu when a nav link is clicked
-const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-const navbarCollapse = document.getElementById('navbarNav');
-
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if (navbarCollapse.classList.contains('show')) {
+// Auto-close hamburger menu on clicking any option (including Hire Me)
+document.querySelectorAll('#navbarNav .nav-link, #navbarNav .btn').forEach(element => {
+    element.addEventListener('click', () => {
+        const navbarCollapse = document.getElementById('navbarNav');
+        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
             $('.navbar-collapse').collapse('hide');
         }
     });
