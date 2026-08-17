@@ -273,3 +273,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Auto-close Bootstrap mobile menu when a nav link is clicked
+const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+const navbarCollapse = document.getElementById('navbarNav');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (navbarCollapse.classList.contains('show')) {
+            $('.navbar-collapse').collapse('hide');
+        }
+    });
+});
