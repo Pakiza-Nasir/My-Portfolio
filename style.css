@@ -1302,7 +1302,6 @@ html, body {
     overflow-x: hidden;
     width: 100%;
 }
-
 /* Light Theme Navbar Color Fix */
 body.light-mode .custom-nav,
 body.light-mode .navbar-collapse {
@@ -1319,7 +1318,6 @@ body.light-mode .navbar-nav .nav-link:hover,
 body.light-mode .navbar-nav .nav-link.active {
     color: #ffbf00 !important; /* Amber Yellow highlight */
 }
-
 /* Mobile Navbar & Hamburger Menu */
 @media (max-width: 991.98px) {
     .navbar-collapse {
