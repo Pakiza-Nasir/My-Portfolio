@@ -1302,21 +1302,24 @@ html, body {
     overflow-x: hidden;
     width: 100%;
 }
-/* Light Theme Navbar Color Fix */
-body.light-mode .custom-nav,
-body.light-mode .navbar-collapse {
-    background-color: #0f172a !important; /* Dark Slate background */
-    border-color: rgba(255, 191, 0, 0.3) !important;
-}
+@media (max-width: 991.98px) {
+  /* Target the collapsed mobile menu container */
+  #navbarNav {
+    background-color: #ffffff !important; /* Changes blue card background to white */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Soft drop shadow for contrast */
+    border-radius: 12px;
+    padding: 20px;
+  }
 
-body.light-mode .navbar-brand,
-body.light-mode .navbar-nav .nav-link {
-    color: #f8fafc !important; /* White text for contrast */
-}
+  /* Change menu link color so it's readable on a white background */
+  #navbarNav .nav-link {
+    color: #333333 !important;
+  }
 
-body.light-mode .navbar-nav .nav-link:hover,
-body.light-mode .navbar-nav .nav-link.active {
-    color: #ffbf00 !important; /* Amber Yellow highlight */
+  /* Keep the active menu link yellow/amber */
+  #navbarNav .nav-link.active {
+    color: #ffb703 !important;
+  }
 }
 /* Mobile Navbar & Hamburger Menu */
 @media (max-width: 991.98px) {
@@ -1491,10 +1494,6 @@ body.light-mode .navbar-nav .nav-link.active {
         font-size: 0.85rem !important;
     }
 }
-/* ==========================================================================
-   UNIFORM SECTION HEADINGS & HIGHLIGHT SPANS FIX
-   ========================================================================== */
-
 /* Main Section Titles Uniform Scaling & Center Alignment */
 .section-title, 
 .main-heading, 
