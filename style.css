@@ -1493,3 +1493,49 @@ body.light-mode .navbar-nav .nav-link.active {
         font-size: 0.85rem !important;
     }
 }
+/* ==========================================================================
+   UNIFORM SECTION HEADINGS & HIGHLIGHT SPANS FIX
+   ========================================================================== */
+
+/* Main Section Titles Uniform Scaling & Center Alignment */
+.section-title, 
+.main-heading, 
+h2.section-title, 
+.section-header h2,
+.section-header {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 2.2rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Force all inner text, spans, and highlighted words to match parent size & alignment */
+.section-title span, 
+.main-heading span, 
+.section-title .text-amber, 
+.main-heading .text-amber,
+.section-title .text-warning,
+.section-title .highlight {
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+    vertical-align: middle !important;
+}
+
+/* Mobile responsive scaling for section titles */
+@media (max-width: 767.98px) {
+    .section-title, 
+    .main-heading, 
+    h2.section-title, 
+    .section-header h2 {
+        font-size: 1.8rem !important;
+    }
+}
