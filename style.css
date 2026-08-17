@@ -1303,6 +1303,7 @@ html, body {
     width: 100%;
 }
 
+/* Light Theme Navbar Color Fix */
 body.light-mode .custom-nav,
 body.light-mode .navbar-collapse {
     background-color: #0f172a !important; /* Dark Slate background */
@@ -1334,7 +1335,7 @@ body.light-mode .navbar-nav .nav-link.active {
     .navbar-nav .nav-link {
         padding: 10px 0;
         text-align: center;
-        font-size: 1.05rem;
+        font-size: 1.05rem; /* Menu items size */
     }
 
     .navbar-right-actions {
@@ -1346,18 +1347,78 @@ body.light-mode .navbar-nav .nav-link.active {
 /* Global Mobile Styles (Smartphones < 768px) */
 @media (max-width: 767.98px) {
 
-    /* Section Spacing & Headings */
+    /* Hero Section Center Alignment */
+    .hero-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 90px;
+        padding-bottom: 50px;
+    }
+
+    .banner_content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* Hero Title & Typed Text Balanced Ratio */
+    .banner_content h1 {
+        font-size: 2.2rem !important; /* Base size for "I Am" */
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        line-height: 1.2 !important;
+    }
+
+    .banner_content h1 span,
+    .banner_content .txt-white {
+        font-size: 2.2rem !important;
+        font-weight: 700 !important;
+    }
+
+    /* Typed Text: "Project Manager" - Balanced to be slightly smaller */
+    .typed-text, 
+    .typed-cursor,
+    .banner_content h1 span.text-amber {
+        font-size: 1.9rem !important;
+        font-weight: 600 !important;
+        vertical-align: middle;
+    }
+
+    .banner_content .mt-4 {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        width: 100%;
+    }
+
+    .banner_content .mt-4 a {
+        width: 100%;
+        max-width: 280px;
+        margin-right: 0 !important;
+        justify-content: center;
+    }
+
+    /* Section Headings & Spacing */
     .section-padding {
         padding: 45px 15px !important;
     }
 
     .section-title, .main-heading {
-        font-size: 2.6rem !important;
+        font-size: 2.0rem !important; /* Main Section Headings (About, Projects, etc.) */
         line-height: 1.3 !important;
     }
 
     .section-subtitle, .sub-heading {
-        font-size: 1.9rem !important;
+        font-size: 1.1rem !important; /* Subtitles under main headings */
     }
 
     /* Cards Auto-Height & Fluid Width */
@@ -1377,20 +1438,20 @@ body.light-mode .navbar-nav .nav-link.active {
         box-sizing: border-box !important;
     }
 
-    /* Text Adjustments inside Cards */
+    /* Text Sizes inside Cards */
     .card-title, .project-title, .service-title {
-        font-size: 2.6rem !important;
+        font-size: 1.35rem !important; /* Card Titles */
         line-height: 1.3 !important;
     }
 
     .card-text, .project-desc, .service-desc, p {
-        font-size: 0.88rem !important;
+        font-size: 0.98rem !important; /* Paragraphs & descriptions */
         line-height: 1.5 !important;
     }
 
     /* Tech Badges/Tags inside Projects */
     .tech-tag, .badge {
-        font-size: 0.75rem !important;
+        font-size: 0.8rem !important;
         padding: 4px 8px !important;
         margin: 2px !important;
     }
@@ -1418,12 +1479,17 @@ body.light-mode .navbar-nav .nav-link.active {
         left: -4px !important;
         width: 34px !important;
         height: 34px !important;
-        font-size: 0.8rem !important;
+        font-size: 0.85rem !important;
     }
 
     /* Buttons Scaling */
     .btn {
-        font-size: 0.88rem !important;
+        font-size: 0.92rem !important;
         padding: 8px 16px !important;
+    }
+
+    .btn-filter {
+        padding: 6px 14px !important;
+        font-size: 0.85rem !important;
     }
 }
