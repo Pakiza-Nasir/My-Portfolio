@@ -151,7 +151,6 @@
     </div>
 </section>
 
-
 <!-- TECH STACK & SKILLS SECTION -->
 <section id="skills" class="section-padding bg-darker overflow-hidden">
     <div class="container">
@@ -332,7 +331,7 @@
     </div>
 </section>
 
-  <!-- PROJECTS SECTION -->
+<!-- PROJECTS SECTION -->
 <section id="projects" class="section-padding bg-darker overflow-hidden">
     <div class="container">
         <h2 class="section-title text-center mb-4">Featured <span class="text-amber">Projects</span></h2>
@@ -343,7 +342,8 @@
             <button class="btn btn-filter" onclick="filterProjects('ml', event)">Machine Learning</button>
         </div>
 
-        <div class="row">
+        <!-- SINGLE ROW CONTAINER FOR ALL PROJECTS -->
+        <div class="row" id="projectsContainer">
 
             <!-- Project 1 -->
             <div class="col-lg-4 col-md-6 mb-4 project-item web slide-from-left">
@@ -351,14 +351,16 @@
                     <div class="showcase-img-box">
                         <img src="image6.png" alt="Weather App" class="showcase-img">
                     </div>
-                    <div class="showcase-body">
-                        <h3 class="showcase-title">"Real-Time Weather App"</h3>
-                        <div class="showcase-meta">
-                            <i class="fa-regular fa-clock"></i>
-                            <span>April 2024 | Web Application</span>
+                    <div class="showcase-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h3 class="showcase-title">"Real-Time Weather App"</h3>
+                            <div class="showcase-meta mb-2">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>April 2024 | Web Application</span>
+                            </div>
+                            <p class="showcase-desc">A responsive web-based weather application providing real-time temperature updates, city search, humidity & wind speed metrics, and dynamic background/icon changes based on weather conditions.</p>
                         </div>
-                        <p class="showcase-desc">A responsive web-based weather application providing real-time temperature updates, city search, humidity & wind speed metrics, and dynamic background/icon changes based on weather conditions.</p>
-                        <a href="https://github.com/Pakiza-Nasir/weather-app" target="_blank" class="btn btn-showcase-yellow">View Project</a>
+                        <a href="https://github.com/Pakiza-Nasir/weather-app" target="_blank" class="btn btn-showcase-yellow mt-3">View Project</a>
                     </div>
                 </div>
             </div>
@@ -369,14 +371,16 @@
                     <div class="showcase-img-box">
                         <img src="image4.png" alt="Diabetes Prediction System" class="showcase-img">
                     </div>
-                    <div class="showcase-body">
-                        <h3 class="showcase-title">"Diabetes Prediction System"</h3>
-                        <div class="showcase-meta">
-                            <i class="fa-regular fa-clock"></i>
-                            <span>June 2024 | Machine Learning</span>
+                    <div class="showcase-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h3 class="showcase-title">"Diabetes Prediction System"</h3>
+                            <div class="showcase-meta mb-2">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>June 2024 | Machine Learning</span>
+                            </div>
+                            <p class="showcase-desc">A healthcare analytics web app leveraging Python, Django, and machine learning models to analyze patient health metrics and deliver accurate risk predictions.</p>
                         </div>
-                        <p class="showcase-desc">A healthcare analytics web app leveraging Python, Django, and machine learning models to analyze patient health metrics and deliver accurate risk predictions.</p>
-                        <a href="https://github.com/Pakiza-Nasir/Diabetes-Prediction-System" target="_blank" class="btn btn-showcase-yellow">View Project</a>
+                        <a href="https://github.com/Pakiza-Nasir/Diabetes-Prediction-System" target="_blank" class="btn btn-showcase-yellow mt-3">View Project</a>
                     </div>
                 </div>
             </div>
@@ -387,79 +391,85 @@
                     <div class="showcase-img-box">
                         <img src="image5.png" alt="SMS Classifier System" class="showcase-img">
                     </div>
-                    <div class="showcase-body">
-                        <h3 class="showcase-title">"SMS Classifier System"</h3>
-                        <div class="showcase-meta">
-                            <i class="fa-regular fa-clock"></i>
-                            <span>June 2024 | Machine Learning</span>
+                    <div class="showcase-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h3 class="showcase-title">"SMS Classifier System"</h3>
+                            <div class="showcase-meta mb-2">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>June 2024 | Machine Learning</span>
+                            </div>
+                            <p class="showcase-desc">An intelligent spam detection web application powered by Natural Language Processing (NLP) and Scikit-Learn to filter and categorize incoming text messages in real time.</p>
                         </div>
-                        <p class="showcase-desc">An intelligent spam detection web application powered by Natural Language Processing (NLP) and Scikit-Learn to filter and categorize incoming text messages in real time.</p>
-                        <a href="https://github.com/Pakiza-Nasir/SMS-Spam-Detection" target="_blank" class="btn btn-showcase-yellow">View Project</a>
+                        <a href="https://github.com/Pakiza-Nasir/SMS-Spam-Detection" target="_blank" class="btn btn-showcase-yellow mt-3">View Project</a>
                     </div>
                 </div>
             </div>
 
-        </div>
-
-        <!-- HIDEABLE PROJECTS CONTAINER -->
-        <div class="row d-none" id="moreProjects">
+            <!-- Extra Projects (Hidden initially with d-none, same row container) -->
 
             <!-- Project 4 -->
-            <div class="col-lg-4 col-md-6 mb-4 project-item web slide-from-left">
+            <div class="col-lg-4 col-md-6 mb-4 project-item web more-project d-none">
                 <div class="custom-card showcase-card h-100">
                     <div class="showcase-img-box">
                         <img src="image1.png" alt="FlowEase Period Companion" class="showcase-img">
                     </div>
-                    <div class="showcase-body">
-                        <h3 class="showcase-title">"FlowEase - Period Companion"</h3>
-                        <div class="showcase-meta">
-                            <i class="fa-regular fa-clock"></i>
-                            <span>July 2025 | Web Application</span>
+                    <div class="showcase-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h3 class="showcase-title">"FlowEase - Period Companion"</h3>
+                            <div class="showcase-meta mb-2">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>July 2025 | Web Application</span>
+                            </div>
+                            <p class="showcase-desc">A comforting web application featuring interactive Mood Analysis, Virtual Hugs, Quran Tilawat player, uplifting affirmations, digital journaling, and period self-care tips.</p>
                         </div>
-                        <p class="showcase-desc">A comforting web application featuring interactive Mood Analysis, Virtual Hugs, Quran Tilawat player, uplifting affirmations, digital journaling, and period self-care tips.</p>
-                        <a href="https://github.com/Pakiza-Nasir/FlowEase" target="_blank" class="btn btn-showcase-yellow">View Project</a>
+                        <a href="https://github.com/Pakiza-Nasir/FlowEase" target="_blank" class="btn btn-showcase-yellow mt-3">View Project</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 5-->
-            <div class="col-lg-4 col-md-6 mb-4 project-item web slide-from-bottom">
+            <!-- Project 5 -->
+            <div class="col-lg-4 col-md-6 mb-4 project-item web more-project d-none">
                 <div class="custom-card showcase-card h-100">
                     <div class="showcase-img-box">
                         <img src="image2.png" alt="Modern Interactive Calculator" class="showcase-img">
                     </div>
-                    <div class="showcase-body">
-                        <h3 class="showcase-title">"Interactive Modern Calculator"</h3>
-                        <div class="showcase-meta">
-                            <i class="fa-regular fa-clock"></i>
-                            <span>July 2026 | Web Application</span>
+                    <div class="showcase-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h3 class="showcase-title">"Interactive Modern Calculator"</h3>
+                            <div class="showcase-meta mb-2">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>July 2026 | Web Application</span>
+                            </div>
+                            <p class="showcase-desc">A sleek mathematical tool built with vanilla JavaScript, featuring real-time evaluation, full keyboard navigation, glassmorphism UI elements, and error handling.</p>
                         </div>
-                        <p class="showcase-desc">A sleek mathematical tool built with vanilla JavaScript, featuring real-time evaluation, full keyboard navigation, glassmorphism UI elements, and error handling.</p>
-                        <a href="https://github.com/Pakiza-Nasir/Calculator_CodeAlpha" target="_blank" class="btn btn-showcase-yellow">View Project</a>
+                        <a href="https://github.com/Pakiza-Nasir/Calculator_CodeAlpha" target="_blank" class="btn btn-showcase-yellow mt-3">View Project</a>
                     </div>
                 </div>
             </div>
 
             <!-- Project 6 -->
-            <div class="col-lg-4 col-md-6 mb-4 project-item web slide-from-right">
+            <div class="col-lg-4 col-md-6 mb-4 project-item web more-project d-none">
                 <div class="custom-card showcase-card h-100">
                     <div class="showcase-img-box">
                         <img src="image3.png" alt="Interactive Image Gallery" class="showcase-img">
                     </div>
-                    <div class="showcase-body">
-                        <h3 class="showcase-title">"Interactive Image Gallery"</h3>
-                        <div class="showcase-meta">
-                            <i class="fa-regular fa-clock"></i>
-                            <span>July 2026 | Web Application</span>
+                    <div class="showcase-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h3 class="showcase-title">"Interactive Image Gallery"</h3>
+                            <div class="showcase-meta mb-2">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>July 2026 | Web Application</span>
+                            </div>
+                            <p class="showcase-desc">A responsive media gallery application built with CSS Grid and JS, highlighting smooth category filtering, interactive hover overlay effects, and full-screen lightbox viewing.</p>
                         </div>
-                        <p class="showcase-desc">A responsive media gallery application built with CSS Grid and JS, highlighting smooth category filtering, interactive hover overlay effects, and full-screen lightbox viewing.</p>
-                        <a href="https://github.com/Pakiza-Nasir/CodeAlpha_ImageGallery" target="_blank" class="btn btn-showcase-yellow">View Project</a>
+                        <a href="https://github.com/Pakiza-Nasir/CodeAlpha_ImageGallery" target="_blank" class="btn btn-showcase-yellow mt-3">View Project</a>
                     </div>
                 </div>
             </div>
 
-        </div>
+        </div> <!-- END OF ROW -->
 
+        <!-- VIEW MORE BUTTON -->
         <div class="w-100 text-center mt-4">
             <button id="toggleProjectsBtn" class="btn btn-outline-mustard btn-sm px-4 py-2 rounded-pill d-inline-block">
                 View More Projects <i class="fa-solid fa-chevron-down ms-1"></i>
@@ -586,7 +596,7 @@
     </div>
 </section>
 
-           <!-- CONTACT SECTION -->
+<!-- CONTACT SECTION -->
 <section id="contact" class="section-padding bg-darker">
     <div class="container">
         <div class="text-center mb-5">
@@ -693,73 +703,74 @@
 </section>
 
    <!-- FOOTER SECTION -->
-<footer class="footer-section bg-darker pt-5 pb-3 border-top border-secondary-subtle">
+<footer class="footer-section bg-darker pt-5 pb-4 border-top border-secondary-subtle">
     <div class="container">
         <div class="row g-4 mb-5">
             
-            <!-- Col 1: Brand & Socials -->
-            <div class="col-lg-5 col-md-6">
-              <h5 class="mb-3">
-        <a href="#home" class="footer-brand text-amber text-uppercase tracking-wider fw-bold fs-5 d-inline-block text-decoration-none">
-            &lt;/&gt; Pakiza Nasir
-        </a>
-    </h5>
-                <p class="text-muted mb-4 pe-lg-4 fs-6" style="line-height: 1.7;">
-        Front-End Web Developer driven by clean<br>
-        code and modern digital interfaces. Hands-on <br>
-        experience in project management workflows,<br>
-        front-end software development, and interactive <br>
-        client-side applications.
-    </p>
-            <!-- Social Media Icons (Blue Theme) -->
-<div class="social-icons" style="display: flex; gap: 15px;">
-    <a href="https://github.com/Pakiza-Nasir" target="_blank" style="color: #2563eb; font-size: 1.5rem;"><i class="fab fa-github"></i></a>
-    <a href="https://pk.linkedin.com/in/pakiza-nasir-174976316" target="_blank" style="color: #2563eb; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
-    <a href="mailto:nasirpakiza81@gmail.com" style="color: #2563eb; font-size: 1.5rem;"><i class="fas fa-envelope"></i></a>
-</div>
+            <!-- Col 1: Brand, Short Bio & Socials -->
+            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                <h5 class="mb-3">
+                    <a href="#home" class="footer-brand text-amber text-uppercase tracking-wider fw-bold fs-5 d-inline-block text-decoration-none">
+                        &lt;/&gt; Pakiza Nasir
+                    </a>
+                </h5>
+                <p class="text-muted mb-4 pe-lg-3 footer-bio-text" style="line-height: 1.6;">
+                    Front-End Web Developer driven by clean code and modern digital interfaces. Hands-on experience in project management workflows and client-side applications.
+                </p>
+                
             </div>
 
-            <!-- Col 2: Navigate Links -->
-            <div class="col-lg-3 col-md-6">
-                
-                <h5 class="text-amber text-uppercase tracking-wider mb-3 fw-bold">Navigate</h5>
+            <!-- Col 2: Navigation Links -->
+            <div class="col-lg-2 col-md-4 col-6">
+                <h6 class="text-amber text-uppercase tracking-wider mb-3 fw-bold">Navigation</h6>
                 <ul class="list-unstyled footer-links fs-6">
                     <li class="mb-2"><a href="#home" class="text-muted text-decoration-none">Home</a></li>
                     <li class="mb-2"><a href="#about" class="text-muted text-decoration-none">About</a></li>
                     <li class="mb-2"><a href="#skills" class="text-muted text-decoration-none">Skills</a></li>
-                    <li class="mb-2"><a href="#projects" class="text-muted text-decoration-none">Projects</a></li>
-                    <li class="mb-2"><a href="#experience" class="text-muted text-decoration-none">Experience</a></li>
-                    <li><a href="#contact" class="text-muted text-decoration-none">Contact</a></li>
+                    <li class="mb-2"><a href="#services" class="text-muted text-decoration-none">Services</a></li>
                 </ul>
             </div>
 
-            <!-- Col 3: Get In Touch & Resume -->
-            <div class="col-lg-4 col-md-12">
-                
-                <h5 class="text-amber text-uppercase tracking-wider mb-3 fw-bold">Get In Touch</h5>
-               <ul class="list-unstyled text-muted fs-6 mb-4">
-    <li class="mb-3 d-flex align-items-center" style="gap: 15px;">
-        <i class="fa-solid fa-envelope text-amber fs-5"></i>
-        <span>nasirpakiza81@gmail.com</span>
-    </li>
-    <li class="mb-3 d-flex align-items-center" style="gap: 15px;">
-        <i class="fa-solid fa-location-dot text-amber fs-5"></i>
-        <span>Gujrat, Punjab, Pakistan</span>
-    </li>
-</ul>
-               <a href="Pakiza_Nasir_CV.pdf" download="Pakiza_Nasir_CV.pdf" class="btn btn-showcase-yellow w-100 py-3 style-hand-cursor fw-bold">
-                            <i class="fa-solid fa-download me-2 mr-2"></i><span>Download CV</span></a> 
-                       
+            <!-- Col 3: Work & Portfolio -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <h6 class="text-amber text-uppercase tracking-wider mb-3 fw-bold">Portfolio</h6>
+                <ul class="list-unstyled footer-links fs-6">
+                    <li class="mb-2"><a href="#projects" class="text-muted text-decoration-none">Featured Projects</a></li>
+                    <li class="mb-2"><a href="#experience" class="text-muted text-decoration-none">Experience</a></li>
+                    <li class="mb-2"><a href="Pakiza_Nasir_CV.pdf" download="Pakiza_Nasir_CV.pdf" class="text-muted text-decoration-none">Download CV</a></li>
+                    <li class="mb-2"><a href="#contact" class="text-muted text-decoration-none">Get in Touch</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Contact Info -->
+            <div class="col-lg-3 col-md-4 col-12">
+                <h6 class="text-amber text-uppercase tracking-wider mb-3 fw-bold">Contact</h6>
+                <ul class="list-unstyled text-muted fs-6 mb-0">
+                    <li class="mb-2 d-flex align-items-center" style="gap: 10px;">
+                        <i class="fa-solid fa-envelope text-amber"></i>
+                        <span class="text-break">nasirpakiza81@gmail.com</span>
+                    </li>
+                    <li class="mb-2 d-flex align-items-center" style="gap: 10px;">
+                        <i class="fa-solid fa-location-dot text-amber"></i>
+                        <span>Gujrat, Punjab, Pakistan</span>
+                    </li>
+                </ul>
+                <!-- Social Media Icons -->
+                <div class="social-icons d-flex align-items-center" style="gap: 15px;">
+                    <a href="https://github.com/Pakiza-Nasir" target="_blank" style="color: #2563eb; font-size: 1.3rem;"><i class="fab fa-github"></i></a>
+                    <a href="https://pk.linkedin.com/in/pakiza-nasir-174976316" target="_blank" style="color: #2563eb; font-size: 1.3rem;"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:nasirpakiza81@gmail.com" style="color: #2563eb; font-size: 1.3rem;"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
 
         </div>
 
         <hr class="border-secondary-subtle my-4">
 
-         <!-- Bottom Copyright Line  -->
+        <!-- Bottom Copyright Line -->
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-center text-muted fs-6">
             <p class="mb-2 mb-md-0">© 2026 Pakiza Nasir. All rights reserved.</p>
-            <p class="mb-0">Designed & built with care — HTML, CSS, JavaScript</p>
+            <p class="mb-0">Designed &amp; built with HTML, CSS, JavaScript</p>
         </div>
     </div>
 </footer>

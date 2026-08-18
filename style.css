@@ -1302,47 +1302,48 @@ html, body {
     overflow-x: hidden;
     width: 100%;
 }
+/* Mobile Navbar Styling Cleaned */
 @media (max-width: 991.98px) {
-  /* Target the collapsed mobile menu container */
   #navbarNav {
-    background-color: #ffffff !important; /* Changes blue card background to white */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Soft drop shadow for contrast */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     border-radius: 12px;
     padding: 20px;
+    margin-top: 15px;
+    border: 1px solid rgba(255, 191, 0, 0.2);
+    transition: all 0.3s ease;
   }
 
-  /* Change menu link color so it's readable on a white background */
-  #navbarNav .nav-link {
+  /* Light Theme */
+  body:not(.dark-theme) #navbarNav {
+    background-color: #ffffff !important;
+  }
+  body:not(.dark-theme) #navbarNav .nav-link {
     color: #333333 !important;
   }
 
-  /* Keep the active menu link yellow/amber */
+  /* Dark Theme */
+  body.dark-theme #navbarNav {
+    background-color: rgba(15, 23, 42, 0.98) !important;
+  }
+  body.dark-theme #navbarNav .nav-link {
+    color: #ffffff !important;
+  }
+
+  /* Active Nav Link */
   #navbarNav .nav-link.active {
     color: #ffb703 !important;
   }
-}
-/* Mobile Navbar & Hamburger Menu */
-@media (max-width: 991.98px) {
-    .navbar-collapse {
-        background: rgba(15, 23, 42, 0.95);
-        backdrop-filter: blur(10px);
-        padding: 20px;
-        border-radius: 12px;
-        margin-top: 15px;
-        border: 1px solid rgba(255, 191, 0, 0.2);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
 
-    .navbar-nav .nav-link {
-        padding: 10px 0;
-        text-align: center;
-        font-size: 1.05rem; /* Menu items size */
-    }
+  .navbar-nav .nav-link {
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1.05rem;
+  }
 
-    .navbar-right-actions {
-        flex-direction: row;
-        gap: 10px;
-    }
+  .navbar-right-actions {
+    flex-direction: row;
+    gap: 10px;
+  }
 }
 
 /* Global Mobile Styles (Smartphones < 768px) */
@@ -1359,6 +1360,16 @@ html, body {
         padding-bottom: 50px;
     }
 
+    .profile-frame {
+    max-width: 200px !important;
+    max-height: 200px !important;
+    margin: 0 auto !important;
+  }
+
+  .hero-profile-img {
+    width: 200px !important;
+    height: 200px !important;
+  }
     .banner_content {
         display: flex;
         flex-direction: column;
@@ -1433,7 +1444,7 @@ html, body {
         width: 100% !important;
         max-width: 100% !important;
         height: auto !important;
-        min-height: initial !important;
+        /* min-height: initial !important; */
         padding: 18px 15px !important;
         margin-bottom: 20px;
         box-sizing: border-box !important;
@@ -1535,4 +1546,105 @@ h2.section-title,
     .section-header h2 {
         font-size: 1.8rem !important;
     }
+}
+/* Theme Toggle Button Styling */
+.theme-toggle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #d0d7de !important; /* Soft Border */
+  background-color: #eef2f6 !important;  /* Light Gray Background */
+  color: #1a1a1a !important;            /* Moon / Icon Color */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.theme-toggle-btn:hover {
+  background-color: #e2e8f0 !important;
+}
+/* Cards Responsive Image & Height Fixes */
+.showcase-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.showcase-img-box {
+  width: 100%;
+  height: 200px; /* Fixed height for image container */
+  overflow: hidden;
+}
+
+.showcase-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Keeps image proportions clean without stretching */
+}
+
+/* Ensure flexbody spans full remaining height */
+.showcase-body {
+  flex: 1;
+  padding: 1.25rem;
+}
+/* Mobile view overflow fix for contact section inner cards */
+@media (max-width: 767.98px) {
+  /* Ensure inner cards wrap content naturally */
+  #contact .custom-card,
+  #contact .contact-card,
+  #contact .info-card {
+    height: auto !important;          /* Fixed height khatam kar ke content ke hisab se height set karega */
+    width: 100% !important;           /* Container width limit mein rakhega */
+    padding: 15px !important;         /* Mobile screens ke liye padding reduced */
+    overflow-wrap: break-word;        /* Long text/emails ko container ke andar wrap karega */
+    word-break: break-word;
+  }
+
+  /* Text aur icons overflow fix */
+  #contact p, 
+  #contact span, 
+  #contact a,
+  #contact h3,
+  #contact h4 {
+    max-width: 100%;
+    word-break: break-word;          /* Long links/emails ko screen se bahar jane se rokega */
+    white-space: normal !important;   /* Single line text ko next line par wrap karega */
+  }
+}
+@media (max-width: 767.98px) {
+  .footer-bio-text {
+    font-size: 1.9rem !important;
+    text-align: justify;
+  }
+
+  .footer-section .text-muted {
+    font-size: 1.0rem !important;
+  }
+
+  .footer-section .d-flex.flex-column {
+    text-align: center;
+  }
+}
+.footer-section a {
+  transition: color 0.2s ease;
+}
+
+.footer-section a:hover {
+  color: #ffb703 !important;
+}
+
+@media (max-width: 767.98px) {
+  .footer-bio-text {
+    font-size: 0.9rem !important;
+  }
+
+  .footer-section .text-muted {
+    font-size: 0.85rem !important;
+  }
+
+  .footer-section .d-flex.flex-column {
+    text-align: center;
+  }
 }

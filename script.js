@@ -283,3 +283,71 @@ document.querySelectorAll('#navbarNav .nav-link, #navbarNav .btn').forEach(eleme
         }
     });
 });
+
+document.getElementById('toggleProjectsBtn').addEventListener('click', function () {
+    const extraProjects = document.querySelectorAll('.more-project');
+    const isHidden = extraProjects[0].classList.contains('d-none');
+
+    extraProjects.forEach(project => {
+        if (isHidden) {
+            project.classList.remove('d-none');
+        } else {
+            project.classList.add('d-none');
+        }
+    });
+
+    if (isHidden) {
+        this.innerHTML = 'Show Less <i class="fa-solid fa-chevron-up ms-1"></i>';
+    } else {
+        this.innerHTML = 'View More Projects <i class="fa-solid fa-chevron-down ms-1"></i>';
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const navbarNav = document.getElementById('navbarNav');
+    const togglerBtn = document.querySelector('.navbar-toggler');
+
+    // Function to close navbar collapse safely
+    function closeNavbar() {
+        if (navbarNav && navbarNav.classList.contains('show')) {
+            // Bootstrap 4 jQuery Collapse check
+            if (window.jQuery && $.fn.collapse) {
+                $('#navbarNav').collapse('hide');
+            } 
+            // Bootstrap 5 Vanilla JS Collapse check
+            else if (typeof bootstrap !== 'undefined' && bootstrap.Collapse) {
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarNav) || new bootstrap.Collapse(navbarNav);
+                bsCollapse.hide();
+            } 
+            // Fallback manual toggle
+            else {
+                navbarNav.classList.remove('show');
+                if (togglerBtn) {
+                    togglerBtn.setAttribute('aria-expanded', 'false');
+                    togglerBtn.classList.add('collapsed');
+                }
+            }
+        }
+    }
+
+    // 1. Close menu on Scroll
+    window.addEventListener('scroll', function () {
+        closeNavbar();
+    });
+
+    // 2. Close menu when clicking any nav link (e.g. Home, About, Contact)
+    const navLinks = document.querySelectorAll('#navbarNav .nav-link, #navbarNav .btn');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            closeNavbar();
+        });
+    });
+
+    // 3. Close menu when clicking outside the navbar
+    document.addEventListener('click', function (event) {
+        const isClickInside = navbarNav.contains(event.target) || (togglerBtn && togglerBtn.contains(event.target));
+        if (!isClickInside) {
+            closeNavbar();
+        }
+    });
+});
